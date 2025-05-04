@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <div>
-      <h2>Dallas's Blog</h2>
+      <h2>Dallas&apos;s Blog</h2>
       <ul>
         {posts.map((post) => (
           <li key={post.slug}>
