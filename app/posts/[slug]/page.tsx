@@ -10,7 +10,12 @@ async function fetchPosts(slug: string) {
     return posts.find((post) => post.slug === slug);
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+type Props = {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await fetchPosts(params.slug);
   if (!post) return {};
   return {
@@ -18,7 +23,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function Post({ params }: { params: { slug: string } }) {
+export default async function Post({ params }: Props) {
     const post = await fetchPosts(params.slug);
 
     if (!post) notFound();
