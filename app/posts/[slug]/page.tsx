@@ -1,16 +1,28 @@
 import { getAllPosts } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import MarkdownIt from "markdown-it";
+import { Metadata } from "next";
 
 const md = new MarkdownIt();
-
 
 async function fetchPosts(slug: string) {
     const posts = getAllPosts()
     return posts.find((post) => post.slug === slug);
 }
 
-export default async function Post({params}: {params: {slug: string}}) {
+type Props = {
+  params: { slug: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const post = await fetchPosts(params.slug);
+  if (!post) return {};
+  return {
+    title: post.title,
+  };
+}
+
+export default async function Post({ params }: Props) {
     const post = await fetchPosts(params.slug);
 
     if (!post) notFound();
@@ -25,4 +37,4 @@ export default async function Post({params}: {params: {slug: string}}) {
             <div dangerouslySetInnerHTML={{__html: htmlConverter}} />
         </article>
     );
-};
+}
