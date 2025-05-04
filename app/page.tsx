@@ -1,5 +1,4 @@
-import { getAllPosts, type Post } from "@/lib/posts";
-import Image from "next/image";
+import { getAllPosts} from "@/lib/posts";
 import Link from "next/link";
 
 export default function Home() {
