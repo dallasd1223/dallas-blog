@@ -1,6 +1,6 @@
 ---
 title: "The Future of AI"
-date: "2025-05-04
+date: "2025-05-04"
 author: "Jane Doe"
 ---
 
@@ -30,7 +30,7 @@ Beyond software, AI is moving into robotics, autonomous vehicles, and smart infr
 
 ## Looking Forward
 
-The future of AI is full of promise — from transforming healthcare and education to tackling climate change. But with this potential comes responsibility. A collaborative approach between technologists, policymakers, and the public will be essential to harness AI’s benefits while minimizing its risks.
+The future of AI is full of promise — from transforming healthcare and education to tackling climate change. But with this potential comes responsibility. A collaborative approach between technologists, policymakers, and the public will be essential to harness AI's benefits while minimizing its risks.
 
 ---
 
