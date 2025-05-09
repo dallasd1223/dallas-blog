@@ -10,12 +10,14 @@ async function fetchPosts(slug: string) {
     return posts.find((post) => post.slug === slug);
 }
 
-type Props = {
-  params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+export async function generateStaticParams() {
+    const posts = getAllPosts();
+    return posts.map((post) => ({
+        slug: post.slug,
+    }));
+}
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = await fetchPosts(params.slug);
   if (!post) return {};
   return {
@@ -23,7 +25,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Post({ params }: Props) {
+interface PageParams {
+  slug: string;
+}
+
+export default async function Post({ params }: { params: PageParams }) {
     const post = await fetchPosts(params.slug);
 
     if (!post) notFound();
