@@ -22,7 +22,7 @@ As AI grows more powerful, so does the need for transparency, fairness, and acco
 ### 4. AI in the Physical World
 Beyond software, AI is moving into robotics, autonomous vehicles, and smart infrastructure — making real-world decisions with real-world consequences.
 
-![A beautiful sunset](images\Image_2D_0023_0054.png "Sunset over the ocean")
+![A beautiful sunset](/images/Image_2D_0023_0054.png "Sunset over the ocean")
 
 ## Challenges Ahead
 
