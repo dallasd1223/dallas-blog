@@ -3,7 +3,13 @@ import { notFound } from "next/navigation";
 import MarkdownIt from "markdown-it";
 import { Metadata } from "next";
 
-const md = new MarkdownIt();
+const md = new MarkdownIt({
+  html: true, // Enable HTML tags in source
+  xhtmlOut: false, // Use '/' to close single tags (<br />)
+  breaks: true, // Convert '\n' in paragraphs into <br>
+  linkify: true, // Autoconvert URL-like text to links
+  typographer: true, // Enable some language-neutral replacement + quotes beautification
+});
 
 async function fetchPosts(slug: string) {
     const posts = getAllPosts()
