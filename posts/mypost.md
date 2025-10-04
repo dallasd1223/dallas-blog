@@ -20,4 +20,19 @@ YESSIRSKI
 <img src="/images/waddle5.png" alt="Waddle" title="Sunset over the ocean" style="display: block; margin: 0 auto;">
 
 FYTMB MF OK
+
+## Code
+```csharp
+using System;
+using Sandbox;
+
+public class Player: Component
+{
+	[Property] float WalkSpeed {get; set;} = 10f;
+	[Property] float RunSpeed {get; set;} = 20f;
+	[Property] float Gravity = -200f;
+  	[Property] public KirbyState CurrentState = KirbyState.Idle;  
+}
+```
+
 </div>

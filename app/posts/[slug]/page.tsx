@@ -2,6 +2,7 @@ import { getAllPosts } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import MarkdownIt from "markdown-it";
 import { Metadata } from "next";
+import hljs from "highlight.js";
 
 const md = new MarkdownIt({
   html: true, // Enable HTML tags in source
@@ -9,6 +10,16 @@ const md = new MarkdownIt({
   breaks: true, // Convert '\n' in paragraphs into <br>
   linkify: true, // Autoconvert URL-like text to links
   typographer: true, // Enable some language-neutral replacement + quotes beautification
+  highlight: function (str: string, lang: string): string {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return '<pre class="hljs"><code>' +
+               hljs.highlight(str, { language: lang }).value +
+               '</code></pre>';
+      } catch (__) {}
+    }
+    return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
+  }
 });
 
 async function fetchPosts(slug: string) {
