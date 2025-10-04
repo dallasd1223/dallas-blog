@@ -16,7 +16,7 @@ const md = new MarkdownIt({
         return '<pre class="hljs"><code>' +
                hljs.highlight(str, { language: lang }).value +
                '</code></pre>';
-      } catch (__) {}
+      } catch {}
     }
     return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
   }
